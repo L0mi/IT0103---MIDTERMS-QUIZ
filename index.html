@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#16325c">
+  <title>IT0103 Networking Quiz</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app">
+    <header>
+      <div class="brand">
+        <div class="brand-mark">IT</div>
+        <div>
+          <h1>IT0103 Networking Quiz</h1>
+          <p>Multiple choice and true or false reviewer</p>
+        </div>
+      </div>
+    </header>
+
+    <section id="startScreen" class="screen active">
+      <div class="card start-card">
+        <p class="eyebrow">Finals reviewer</p>
+        <h2>Practice until every answer is correct.</h2>
+        <p class="lead">Questions are based on the IT0103 networking reviewer. Your first answer counts toward the scoreboard, but a wrong answer can be changed before you continue.</p>
+
+        <div class="rules">
+          <div class="rule"><strong>Answer each question</strong><span>Choose one answer, then press Check Answer.</span></div>
+          <div class="rule"><strong>Correct mistakes</strong><span>If the answer is wrong, Next stays locked until you fix it.</span></div>
+          <div class="rule"><strong>Review afterward</strong><span>See every correct answer and your first choice when finished.</span></div>
+        </div>
+
+        <div class="setup">
+          <label>
+            Number of questions
+            <select id="questionCount">
+              <option value="10">10 questions</option>
+              <option value="20" selected>20 questions</option>
+              <option value="30">30 questions</option>
+              <option value="all">All questions</option>
+            </select>
+          </label>
+          <button id="startButton" class="button primary" type="button">Start Quiz</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="quizScreen" class="screen">
+      <div class="quiz-top">
+        <div class="card progress-card">
+          <div class="progress-copy"><strong id="progressText">Question 1 of 20</strong><span id="categoryText">Fundamentals</span></div>
+          <div class="progress-track"><div id="progressFill" class="progress-fill"></div></div>
+        </div>
+        <div class="card scoreboard" aria-label="Live scoreboard">
+          <div class="score-item"><strong id="firstTryScore">0</strong><span>First try</span></div>
+          <div class="score-item"><strong id="correctedScore">0</strong><span>Corrected</span></div>
+        </div>
+      </div>
+
+      <article class="card question-card">
+        <div class="question-meta">
+          <span id="typePill" class="pill">Multiple Choice</span>
+          <span id="questionNumber" class="pill">#1</span>
+        </div>
+        <h2 id="questionText"></h2>
+        <div id="options" class="options"></div>
+        <div id="feedback" class="feedback" role="status" aria-live="polite"></div>
+
+        <div class="actions">
+          <button id="backButton" class="button secondary" type="button">Back</button>
+          <div class="right-actions">
+            <button id="checkButton" class="button primary" type="button" disabled>Check Answer</button>
+            <button id="nextButton" class="button primary" type="button" disabled>Next</button>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section id="resultScreen" class="screen">
+      <div class="card result-card">
+        <p class="eyebrow">Quiz complete</p>
+        <h2>Your first-try score</h2>
+        <div id="resultPercent" class="result-score">0%</div>
+        <p id="resultMessage"></p>
+
+        <div class="result-grid">
+          <div class="result-stat"><strong id="resultCorrect">0 / 0</strong><span>Correct on first try</span></div>
+          <div class="result-stat"><strong id="resultCorrected">0</strong><span>Corrected answers</span></div>
+          <div class="result-stat"><strong id="resultAttempts">0</strong><span>Total checks</span></div>
+        </div>
+
+        <div class="result-actions">
+          <button id="reviewButton" class="button primary" type="button">Show Answer Review</button>
+          <button id="retryButton" class="button secondary" type="button">Try Again</button>
+          <button id="homeButton" class="button danger" type="button">Quiz Setup</button>
+        </div>
+      </div>
+
+      <div id="reviewCard" class="card review-card hidden">
+        <h3>Answer Review</h3>
+        <p>Every question is shown with the correct answer. Orange items needed a correction.</p>
+        <div id="reviewList" class="review-list"></div>
+      </div>
+    </section>
+
+    <footer>Works offline. Progress stays on this device while the page remains open.</footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
